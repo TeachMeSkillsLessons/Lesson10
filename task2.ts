@@ -1,22 +1,19 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// Написать класс Cache
+// Починить код так чтобы Counter работал
+class Counter {
+  count = 0;
 
-class Cache {
-  private cache: Record<string, unknown> = {};
+  increment(count: number = 1): void {
+    this.count += count;
+  }
 
-  constructor(private readonly fn: (...args: unknown[]) => unknown) {}
-
-  call(...args: unknown[]) {}
-
-  clear(): void {}
-
-  get size(): number {
-    return 0;
+  getCount(): number {
+    return this.count;
   }
 }
 
-const func = new Cache(() => Math.random());
+const counter = new Counter();
+const inc = counter.increment;
 
-console.log(func.call());
-console.log(func.call());
-console.log(func.size);
+inc();
+
+console.log(counter.getCount());
